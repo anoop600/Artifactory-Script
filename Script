@@ -1,0 +1,8 @@
+apt-get update; apt-get install default-jdk -y
+echo "deb https://jfrog.bintray.com/artifactory-debs xenial main" | sudo tee -a /etc/apt/sources.list
+curl https://bintray.com/user/downloadSubjectPublicKey?username=jfrog | sudo apt-key add -
+apt-get update
+apt-get install jfrog-artifactory-cpp-ce
+systemctl start artifactory.service
+systemctl status artifactory.service
+netstat -tulnp
